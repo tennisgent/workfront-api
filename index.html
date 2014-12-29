@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>attask-api Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	
+	<link type="text/css" rel="stylesheet" href="styles/site.united.css">
+	
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="navbar navbar-fixed-top ">
+		<div class="navbar-inner">
+			<a class="brand" href="index.html">attask-api</a>
+			<ul class="nav">
+				
+				<li class="dropdown">
+					<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="AtTask.ApiConstants.html">ApiConstants</a>
+						</li>
+						
+						<li>
+							<a href="AtTask.ApiFactory.html">ApiFactory</a>
+						</li>
+						
+						<li>
+							<a href="AtTask.ApiUtil.html">ApiUtil</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="Api.html">Api</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+
+		
+		<div class="span8">
+			
+				<div id="main">
+					
+
+
+	
+	<span class="page-title">Index</span>
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section>
+        <article><h1 id="attask-api">attask-api</h1>
+<p><a href="https://www.npmjs.org/package/attask-api"><img src="https://img.shields.io/npm/v/attask-api.svg?style=flat" alt="NPM version"></a> <a href="https://www.npmjs.org/package/attask-api"><img src="https://img.shields.io/npm/dm/attask-api.svg?style=flat" alt="NPM downloads"></a> <a href="LICENSE"><img src="http://img.shields.io/badge/license-APv2-blue.svg?style=flat" alt="Apache v2 License"></a> <a href="https://travis-ci.org/bhovhannes/attask-api"><img src="https://img.shields.io/travis/bhovhannes/attask-api.svg?style=flat" alt="Build Status"></a> <a href="https://coveralls.io/r/bhovhannes/attask-api"><img src="https://img.shields.io/coveralls/bhovhannes/attask-api.svg?style=flat" alt="Coverage"></a></p>
+<p>An AtTask API for the Node and Web</p>
+<h2 id="status">Status</h2>
+<p>This is currently work in progress. Package will be published to NPM registry once everything will be ready. Use source code at your own risk.</p>
+<h2 id="usage">Usage</h2>
+<h4 id="server-side-usage">Server-side usage</h4>
+<p>Install as a dev dependency:</p>
+<pre><code>npm install attask-api --save-dev
+</code></pre><p>Then <code>require(&#39;attask-api&#39;)</code> in your code. For example:</p>
+<pre><code class="lang-javascript">var attask = require(&#39;attask-api&#39;),
+    util = require(&#39;util&#39;);
+
+/**
+ * The console.log statement below will output the following:
+ * { 
+ *    Api: [Function: Api],
+ *    ApiFactory: [Object],
+ *    ApiUtil: [Object],
+ *    ApiConstants: [Object] 
+ * }
+ */
+console.log(util.inspect(attask, {depth:0}));
+</code></pre>
+<h4 id="in-a-browser">In a browser</h4>
+<p>This package uses <a href="http://browserify.org">Browserify</a> to generate <a href="dist/attask.min.js">dist/attask.min.js</a>. Loading that script will create <code>window.AtTask</code> object which will contain all the classes and methods just as in the server-side environment (see <a href="#server-side-usage">Server-side usage</a> section).<br>This package makes use of <a href="https://www.promisejs.org">Promises</a>. Promises are not currently supported by all browsers (see <a href="http://kangax.github.io/compat-table/es6/#Promise">kangax compatibility tables</a> but there are many polyfills available, including one listed in <a href="https://www.promisejs.org">www.promisejs.org</a>. Load polyfill before <code>attask.min.js</code> and everything will work just fine.<br>Although the lack of CORS support may prevent you from sending request to AtTask servers, there are some usage examples in <a href="examples/browser">examples/browser</a> folder to give you an idea.</p>
+<h2 id="documentation">Documentation</h2>
+<p>API documentation is available at <a href="http://bhovhannes.github.io/attask-api/">http://bhovhannes.github.io/attask-api/</a>.</p>
+<h2 id="examples">Examples</h2>
+<p>A number of examples can be found under <a href="examples">examples</a> directory. It includes examples for both <a href="examples/node">node</a> and <a href="examples/browser">browser</a> environments.<br>In order to run these examples clone a copy of attask-api repository:</p>
+<pre><code>git clone git://github.com/bhovhannes/attask-api.git
+</code></pre><h4 id="running-node-examples-node-examples">Running <a href="examples/node">node</a> examples</h4>
+<p>First enter into <code>attask-api</code> directory and install all the dependencies:</p>
+<pre><code>cd attask-api
+npm install
+</code></pre><p>Use <code>node</code> to run the examples. For examples:</p>
+<pre><code>node examples/node/get-use-count.js
+</code></pre><p>Each example script outputs all its results into console and contains comments in the source code explaining what is happenning in more details.</p>
+<h4 id="running-browser-examples-browser-examples">Running <a href="examples/browser">browser</a> examples</h4>
+<p>There is a separate <a href="http://gulpjs.com">Gulp</a> task for starting web server.
+To start webserver type:</p>
+<pre><code>node ./node_modules/gulp/bin/gulp.js serve
+</code></pre><p>or, if you have Gulp installed globally, just:</p>
+<pre><code>gulp serve
+</code></pre><p>Visit <a href="http://localhost:8000/examples/browser/">http://localhost:8000/examples/browser/</a> to see list of all examples available for browser.</p>
+</article>
+    </section>
+
+
+
+
+
+
+
+				</div>
+
+				<div class="clearfix"></div>
+				<footer>
+					
+					
+		<span class="jsdoc-message">
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a>
+		on Mon Dec 29 2014 16:50:45 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		</span>
+				</footer>
+			</div>
+
+			
+			<div class="span3">
+				<div id="toc"></div>
+			</div>
+			
+			<br clear="both">
+		</div>
+
+	</div>
+	<script src="scripts/sunlight.js"></script>
+	<script src="scripts/sunlight.javascript.js"></script>
+	<script src="scripts/sunlight-plugin.doclinks.js"></script>
+	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
+	<script src="scripts/sunlight-plugin.menu.js"></script>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.scrollTo.js"></script>
+	<script src="scripts/jquery.localScroll.js"></script>
+	<script src="scripts/bootstrap-dropdown.js"></script>
+	<script src="scripts/toc.js"></script>
+
+
+	<script>  Sunlight.highlightAll({lineNumbers:true,  showMenu: true, enableDoclinks :true}); </script>
+
+	<script>
+		$( function () {
+			$( "#toc" ).toc( {
+				selectors   : "h1,h2,h3,h4",
+				showAndHide : false,
+				scrollTo    : 60
+			} );
+			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+
+		} );
+	</script>
+
+	
+
+</body>
+</html>
