@@ -149,7 +149,7 @@
             <td class="description last">An object with the following keys:<br/>
     <code>hostname</code> {String} - Required. A name of host to connect to<br/>
     <code>port</code> {String} - Optional. A port on host to connect to. Defaults to 80.<br/>
-    <code>version</code> {String} - Optional. Which version of api to use. At the moment of writing can be 1.0, 2.0, 3.0, 4.0, 5.0. Pass 'internal' to use AtTask internal API (this is the latest version, maybe unstable)</td>
+    <code>version</code> {String} - Optional. Which version of api to use. At the moment of writing can be 1.0, 2.0, 3.0, 4.0. Pass 'internal' to use AtTask internal API (this is the latest version, maybe unstable)</td>
         </tr>
 
 	
@@ -445,7 +445,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
         </tr>
 
 	
@@ -494,7 +494,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -550,6 +550,500 @@
     <h5>Returns:</h5>
     
             
+<div class="param-desc">
+    A promise which will resolved with results if everything went ok and rejected otherwise
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Promise</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">(username, password)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Logs in into AtTask. Should be a first call to AtTask API.
+Other calls should be made after this one will be completed.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A username in AtTask</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Password to use</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="login.js.html">plugins/login.js</a>, <a href="login.js.html#sunlight-1-line-11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise which will resolved with logged in user data if everything went ok and rejected otherwise
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Promise</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="logout"><span class="type-signature"></span>logout<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Logs out from AtTask
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="logout.js.html">plugins/logout.js</a>, <a href="logout.js.html#sunlight-1-line-8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise which will resolved with <code>true</code> if everything went ok and rejected otherwise
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Promise</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="metadata"><span class="type-signature"></span>metadata<span class="signature">(objCode)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Retrieves API metadata for an object.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>objCode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="metadata.js.html">plugins/metadata.js</a>, <a href="metadata.js.html#sunlight-1-line-9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise which will resolved with object metadata if everything went ok and rejected otherwise
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Promise</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="objects"><span class="type-signature"></span>objects<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Retrieves list of objects available in API
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="metadata.js.html">plugins/metadata.js</a>, <a href="metadata.js.html#sunlight-1-line-21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise which will resolved with object list if everything went ok and rejected otherwise
+</div>
+
 
 
 <dl>
@@ -581,7 +1075,7 @@
     
     
     <div class="description">
-        Inserts a new object
+        Inserts a new object.
     </div>
     
 
@@ -641,7 +1135,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
         </tr>
 
 	
@@ -672,7 +1166,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">Values of fields to be set for the new object. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -705,7 +1199,7 @@
 
             
 
-            <td class="description last">Which fields of newly created object to return</td>
+            <td class="description last">Which fields of newly created object to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -796,7 +1290,7 @@
     
     
     <div class="description">
-        Used for object retrieval by multiple search criteria
+        Used for object retrieval by multiple search criteria.
     </div>
     
 
@@ -846,7 +1340,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
         </tr>
 
 	
@@ -892,7 +1386,7 @@
 
             
 
-            <td class="description last">Which fields to return</td>
+            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -948,6 +1442,10 @@
     <h5>Returns:</h5>
     
             
+<div class="param-desc">
+    A promise which will resolved with search results if everything went ok and rejected otherwise
+</div>
+
 
 
 <dl>
@@ -989,7 +1487,7 @@
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a>
-		on Mon Dec 29 2014 17:23:47 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		on Mon Dec 29 2014 18:34:13 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
 			</div>

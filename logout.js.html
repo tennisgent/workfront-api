@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>attask-api Source: plugins/search.js</title>
+	<title>attask-api Source: plugins/logout.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -71,7 +71,7 @@
 					
 
 
-		<h1 class="page-title">Source: plugins/search.js</h1>
+		<h1 class="page-title">Source: plugins/logout.js</h1>
     
     <section>
         <article>
@@ -79,14 +79,21 @@
 
 module.exports = function(Api) {
     /**
-     * Used for object retrieval by multiple search criteria.
-     * @param {String} objCode    One of object codes from {@link https://developers.attask.com/api-docs/api-explorer/|AtTask API Explorer}
-     * @param {Object} query    An object with search criteria
-     * @param {Array} fields    Which fields to return. See {@link https://developers.attask.com/api-docs/api-explorer/|AtTask API Explorer} for the list of available fields for the given objCode.
-     * @return {Promise}    A promise which will resolved with search results if everything went ok and rejected otherwise
+     * Logs out from AtTask
+     * @return {Promise}    A promise which will resolved with &lt;code>true&lt;/code> if everything went ok and rejected otherwise
      */
-    Api.prototype.search = function (objCode, query, fields) {
-        return this.request(objCode + '/search', query, fields, 'GET');
+    Api.prototype.logout = function () {
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            that.request('logout', {sessionID: that.httpOptions.headers.sessionID}).then(function (result) {
+                if (result) {
+                    delete that.httpOptions.headers.sessionID;
+                    resolve(result.success);
+                } else {
+                    reject(false);
+                }
+            });
+        });
     };
 };</pre>
         </article>
