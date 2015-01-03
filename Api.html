@@ -386,6 +386,252 @@
         
             
 <dt>
+    <h4 class="name" id="execute"><span class="type-signature"></span>execute<span class="signature">(objCode, objID, action, <span class="optional">actionArgs</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Executes an action for the given object
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>objCode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>objID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">ID of object</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>action</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An action to execute. A list of allowed named queries are available within the <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> under "actions" for each object.</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>actionArgs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Optional. Arguments for the action. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of valid arguments</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="execute.js.html">plugins/execute.js</a>, <a href="execute.js.html#sunlight-1-line-11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise which will resolved if everything went ok and rejected otherwise
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Promise</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(objCode, objIDs, fields)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
     
     
@@ -807,7 +1053,7 @@ Other calls should be made after this one will be completed.
     
             
 <div class="param-desc">
-    A promise which will resolved with <code>true</code> if everything went ok and rejected otherwise
+    A promise which will resolved if everything went ok and rejected otherwise
 </div>
 
 
@@ -961,6 +1207,252 @@ Other calls should be made after this one will be completed.
             
 <div class="param-desc">
     A promise which will resolved with object metadata if everything went ok and rejected otherwise
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Promise</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="namedQuery"><span class="type-signature"></span>namedQuery<span class="signature">(objCode, query, <span class="optional">queryArgs</span>, fields)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Executes a named query for the given obj code
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>objCode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A query to execute. A list of allowed named queries are available within the <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> under "actions" for each object.</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>queryArgs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Optional. Arguments for the action. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of valid arguments</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>fields</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="namedQuery.js.html">plugins/namedQuery.js</a>, <a href="namedQuery.js.html#sunlight-1-line-11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise which will resolved with received data if everything went ok and rejected with error info otherwise
 </div>
 
 
@@ -1201,7 +1693,222 @@ Other calls should be made after this one will be completed.
         
             
 <dt>
-    <h4 class="name" id="search"><span class="type-signature"></span>search<span class="signature">(objCode, query, fields)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(objCode, objID, <span class="optional">bForce</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Deletes an object
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>objCode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>objID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">ID of object</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>bForce</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Pass true to cause the server to remove the specified data and its dependants</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="remove.js.html">plugins/remove.js</a>, <a href="remove.js.html#sunlight-1-line-10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise which will resolved if everything went ok and rejected otherwise
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Promise</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="search"><span class="type-signature"></span>search<span class="signature">(objCode, query, <span class="optional">fields</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
     
     
 </dt>
@@ -1231,6 +1938,8 @@ Other calls should be made after this one will be completed.
 		<th>Type</th>
 
 		
+		<th>Argument</th>
+		
 
 		
 
@@ -1256,6 +1965,14 @@ Other calls should be made after this one will be completed.
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -1279,6 +1996,14 @@ Other calls should be made after this one will be completed.
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -1301,6 +2026,16 @@ Other calls should be made after this one will be completed.
             
             </td>
 
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -1406,7 +2141,7 @@ Other calls should be made after this one will be completed.
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a>
-		on Fri Jan 02 2015 12:45:02 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		on Sat Jan 03 2015 12:47:08 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
 			</div>
