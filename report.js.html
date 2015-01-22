@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>attask-api Source: ApiUtil.js</title>
+	<title>attask-api Source: plugins/report.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -71,19 +71,21 @@
 					
 
 
-		<h1 class="page-title">Source: ApiUtil.js</h1>
+		<h1 class="page-title">Source: plugins/report.js</h1>
     
     <section>
         <article>
-            <pre class="sunlight-highlight-javascript linenums">/**
- * @name ApiUtil
- * @memberOf AtTask
- * @namespace
- */
-module.exports = {
-
-};
-</pre>
+            <pre class="sunlight-highlight-javascript linenums">module.exports = function(Api) {
+    /**
+     * Performs report request, where only the aggregate of some field is desired, with one or more groupings.
+     * @param {String} objCode    One of object codes from {@link https://developers.attask.com/api-docs/api-explorer/|AtTask API Explorer}
+     * @param {Object} query    An object with search criteria and aggregate functions
+     * @return {Promise}    A promise which will resolved with results if everything went ok and rejected otherwise
+     */
+    Api.prototype.report = function (objCode, query) {
+        return this.request(objCode + '/report', query, null, Api.Methods.GET);
+    };
+};</pre>
         </article>
     </section>
 

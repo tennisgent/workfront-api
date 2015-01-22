@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>attask-api Source: ApiUtil.js</title>
+	<title>attask-api Source: plugins/create.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -71,19 +71,22 @@
 					
 
 
-		<h1 class="page-title">Source: ApiUtil.js</h1>
+		<h1 class="page-title">Source: plugins/create.js</h1>
     
     <section>
         <article>
-            <pre class="sunlight-highlight-javascript linenums">/**
- * @name ApiUtil
- * @memberOf AtTask
- * @namespace
- */
-module.exports = {
-
-};
-</pre>
+            <pre class="sunlight-highlight-javascript linenums">module.exports = function(Api) {
+    /**
+     * Creates a new object.
+     * @param {String} objCode    One of object codes from {@link https://developers.attask.com/api-docs/api-explorer/|AtTask API Explorer}
+     * @param {Object} params    Values of fields to be set for the new object. See {@link https://developers.attask.com/api-docs/api-explorer/|AtTask API Explorer} for the list of available fields for the given objCode.
+     * @param {String[]} [fields]    Which fields of newly created object to return. See {@link https://developers.attask.com/api-docs/api-explorer/|AtTask API Explorer} for the list of available fields for the given objCode.
+     * @returns {Promise}    A promise which will resolved with the ID and any other specified fields of newly created object
+     */
+    Api.prototype.create = function (objCode, params, fields) {
+        return this.request(objCode, params, fields, Api.Methods.POST);
+    };
+};</pre>
         </article>
     </section>
 
