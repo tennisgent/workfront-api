@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>workfront-api Source: plugins/report.js</title>
+	<title>workfront-api Source: plugins/request.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -71,7 +71,7 @@
 					
 
 
-		<h1 class="page-title">Source: plugins/report.js</h1>
+		<h1 class="page-title">Source: plugins/request.js</h1>
     
     <section>
         <article>
@@ -91,17 +91,86 @@
  * limitations under the License.
  */
 
+var queryString = require('querystring'),
+    util = require('util');
+
 module.exports = function(Api) {
-    /**
-     * Performs report request, where only the aggregate of some field is desired, with one or more groupings.
-     * @param {String} objCode    One of object codes from {@link https://developers.attask.com/api-docs/api-explorer/|Workfront API Explorer}
-     * @param {Object} query    An object with search criteria and aggregate functions
-     * @return {Promise}    A promise which will resolved with results if everything went ok and rejected otherwise
-     */
-    Api.prototype.report = function (objCode, query) {
-        return this.request(objCode + '/report', query, null, Api.Methods.GET);
+    var requestHasData = function(method) {
+        return method !== Api.Methods.GET &amp;&amp; method !== Api.Methods.PUT;
     };
-};</pre>
+
+    Api.prototype.request = function(path, params, fields, method) {
+        params = params || {};
+        fields = fields || [];
+
+        var options = {};
+        util._extend(options, this.httpOptions);
+        options.method = method;
+        if (path.indexOf('/') === 0) {
+            options.path = this.httpOptions.path + path;
+        }
+        else {
+            options.path = this.httpOptions.path + '/' + path;
+        }
+
+        if (fields.length !== 0) {
+            params.fields = fields.join();
+        }
+
+        params = queryString.stringify(params);
+        if (params) {
+            if (requestHasData(options.method)) {
+                options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+                options.headers['Content-Length'] = params.length;
+            }
+            else {
+                options.path += '?' + params;
+            }
+        }
+
+        var httpTransport = this.httpTransport;
+
+        return new Promise(function (resolve, reject) {
+            /*options = {
+                url: 'http://echo.jsontest.com',
+                path: '/data/123',
+                withCredentials: false
+            };*/
+
+            var request = httpTransport.request(options, function (response) {
+                var body = '';
+                if (typeof response.setEncoding === 'function') {
+                    response.setEncoding('utf8');
+                }
+                response.on('data', function (chunk) {
+                    body += chunk;
+                });
+                response.on('end', function () {
+                    var data;
+                    try {
+                        data = JSON.parse(body);
+                    }
+                    catch(e) {
+                        reject(body);
+                        return;
+                    }
+                    if (data.error) {
+                        reject(data);
+                    } else {
+                        resolve(data.data);
+                    }
+                });
+            });
+            request.on('error', reject);
+            if (params &amp;&amp; requestHasData(options.method)) {
+                request.write(params);
+            }
+            request.end();
+        });
+    };
+};
+
+</pre>
         </article>
     </section>
 

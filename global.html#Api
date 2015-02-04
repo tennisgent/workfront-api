@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>attask-api Class: Api</title>
+	<title>workfront-api Class: Api</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -19,7 +19,7 @@
 <div class="container-fluid">
 	<div class="navbar navbar-fixed-top ">
 		<div class="navbar-inner">
-			<a class="brand" href="index.html">attask-api</a>
+			<a class="brand" href="index.html">workfront-api</a>
 			<ul class="nav">
 				
 				<li class="dropdown">
@@ -29,15 +29,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="AtTask.ApiConstants.html">ApiConstants</a>
+							<a href="Workfront.ApiConstants.html">ApiConstants</a>
 						</li>
 						
 						<li>
-							<a href="AtTask.ApiFactory.html">ApiFactory</a>
+							<a href="Workfront.ApiFactory.html">ApiFactory</a>
 						</li>
 						
 						<li>
-							<a href="AtTask.ApiUtil.html">ApiUtil</a>
+							<a href="Workfront.ApiUtil.html">ApiUtil</a>
 						</li>
 						
 
@@ -51,7 +51,7 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="Api.html">Api</a>
+							<a href="global.html#Api">Api</a>
 						</li>
 						
 
@@ -147,8 +147,8 @@
             
 
             <td class="description last">An object with the following keys:<br/>
-    <code>url</code> {String} - Required. An url to AtTask server (for example: http://localhost:8080)<br/>
-    <code>version</code> {String} - Optional. Which version of api to use. At the moment of writing can be 1.0, 2.0, 3.0, 4.0. Pass 'unsupported' to use AtTask latest API (maybe unstable).
+    <code>url</code> {String} - Required. An url to Workfront server (for example: http://localhost:8080)<br/>
+    <code>version</code> {String} - Optional. Which version of api to use. At the moment of writing can be 1.0, 2.0, 3.0, 4.0. Pass 'unsupported' to use Workfront latest API (maybe unstable).
     <code>secureProtocol</code> {String} - Optional. Used only in https. The SSL method to use, e.g. TLSv1_method to force TLS version 1. The possible values depend on your installation of OpenSSL and are defined in the constant <a href="http://www.openssl.org/docs/ssl/ssl.html#DEALING_WITH_PROTOCOL_METHODS">SSL_METHODS</a>.</td>
         </tr>
 
@@ -181,7 +181,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Api.js.html">Api.js</a>, <a href="Api.js.html#sunlight-1-line-13">line 13</a>
+        <a href="Api.js.html">Api.js</a>, <a href="Api.js.html#sunlight-1-line-29">line 29</a>
     </li></ul></dd>
     
 
@@ -236,7 +236,7 @@
     
     <div class="description">
         Copies an existing object with making changes on a copy.
-Copying is supported only for some objects. The <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> page displays which objects support the Copy action.
+Copying is supported only for some objects. The <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> page displays which objects support the Copy action.
     </div>
     
 
@@ -296,7 +296,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a></td>
         </tr>
 
 	
@@ -358,7 +358,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">Which fields to set on copied object. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+            <td class="description last">Which fields to set on copied object. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -391,7 +391,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -423,7 +423,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="copy.js.html">plugins/copy.js</a>, <a href="copy.js.html#sunlight-1-line-11">line 11</a>
+        <a href="copy.js.html">plugins/copy.js</a>, <a href="copy.js.html#sunlight-1-line-27">line 27</a>
     </li></ul></dd>
     
 
@@ -587,7 +587,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="count.js.html">plugins/count.js</a>, <a href="count.js.html#sunlight-1-line-8">line 8</a>
+        <a href="count.js.html">plugins/count.js</a>, <a href="count.js.html#sunlight-1-line-24">line 24</a>
     </li></ul></dd>
     
 
@@ -702,7 +702,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a></td>
         </tr>
 
 	
@@ -733,7 +733,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">Values of fields to be set for the new object. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+            <td class="description last">Values of fields to be set for the new object. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -766,7 +766,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">Which fields of newly created object to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+            <td class="description last">Which fields of newly created object to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -798,7 +798,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="create.js.html">plugins/create.js</a>, <a href="create.js.html#sunlight-1-line-9">line 9</a>
+        <a href="create.js.html">plugins/create.js</a>, <a href="create.js.html#sunlight-1-line-25">line 25</a>
     </li></ul></dd>
     
 
@@ -917,7 +917,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a></td>
         </tr>
 
 	
@@ -979,7 +979,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">Which fields to set. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+            <td class="description last">Which fields to set. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -1012,7 +1012,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -1044,7 +1044,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="edit.js.html">plugins/edit.js</a>, <a href="edit.js.html#sunlight-1-line-10">line 10</a>
+        <a href="edit.js.html">plugins/edit.js</a>, <a href="edit.js.html#sunlight-1-line-26">line 26</a>
     </li></ul></dd>
     
 
@@ -1163,7 +1163,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a></td>
         </tr>
 
 	
@@ -1225,7 +1225,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">An action to execute. A list of allowed named queries are available within the <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> under "actions" for each object.</td>
+            <td class="description last">An action to execute. A list of allowed named queries are available within the <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> under "actions" for each object.</td>
         </tr>
 
 	
@@ -1258,7 +1258,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">Optional. Arguments for the action. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of valid arguments</td>
+            <td class="description last">Optional. Arguments for the action. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of valid arguments</td>
         </tr>
 
 	
@@ -1290,7 +1290,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="execute.js.html">plugins/execute.js</a>, <a href="execute.js.html#sunlight-1-line-11">line 11</a>
+        <a href="execute.js.html">plugins/execute.js</a>, <a href="execute.js.html#sunlight-1-line-27">line 27</a>
     </li></ul></dd>
     
 
@@ -1399,7 +1399,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a></td>
         </tr>
 
 	
@@ -1448,7 +1448,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
 
             
 
-            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -1480,7 +1480,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="get.js.html">plugins/get.js</a>, <a href="get.js.html#sunlight-1-line-9">line 9</a>
+        <a href="get.js.html">plugins/get.js</a>, <a href="get.js.html#sunlight-1-line-25">line 25</a>
     </li></ul></dd>
     
 
@@ -1539,7 +1539,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
     
     
     <div class="description">
-        Logs in into AtTask. Should be a first call to AtTask API.
+        Logs in into Workfront. Should be a first call to Workfront API.
 Other calls should be made after this one will be completed.
     </div>
     
@@ -1590,7 +1590,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">A username in AtTask</td>
+            <td class="description last">A username in Workfront</td>
         </tr>
 
 	
@@ -1645,7 +1645,7 @@ Other calls should be made after this one will be completed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="login.js.html">plugins/login.js</a>, <a href="login.js.html#sunlight-1-line-9">line 9</a>
+        <a href="login.js.html">plugins/login.js</a>, <a href="login.js.html#sunlight-1-line-25">line 25</a>
     </li></ul></dd>
     
 
@@ -1704,7 +1704,7 @@ Other calls should be made after this one will be completed.
     
     
     <div class="description">
-        Logs out from AtTask
+        Logs out from Workfront
     </div>
     
 
@@ -1737,7 +1737,7 @@ Other calls should be made after this one will be completed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logout.js.html">plugins/logout.js</a>, <a href="logout.js.html#sunlight-1-line-6">line 6</a>
+        <a href="logout.js.html">plugins/logout.js</a>, <a href="logout.js.html#sunlight-1-line-22">line 22</a>
     </li></ul></dd>
     
 
@@ -1858,7 +1858,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a>. If omitted will return list of objects available in API.</td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a>. If omitted will return list of objects available in API.</td>
         </tr>
 
 	
@@ -1890,7 +1890,7 @@ Other calls should be made after this one will be completed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="metadata.js.html">plugins/metadata.js</a>, <a href="metadata.js.html#sunlight-1-line-7">line 7</a>
+        <a href="metadata.js.html">plugins/metadata.js</a>, <a href="metadata.js.html#sunlight-1-line-23">line 23</a>
     </li></ul></dd>
     
 
@@ -2009,7 +2009,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a></td>
         </tr>
 
 	
@@ -2040,7 +2040,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">A query to execute. A list of allowed named queries are available within the <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> under "actions" for each object.</td>
+            <td class="description last">A query to execute. A list of allowed named queries are available within the <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> under "actions" for each object.</td>
         </tr>
 
 	
@@ -2073,7 +2073,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">Optional. Arguments for the action. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of valid arguments</td>
+            <td class="description last">Optional. Arguments for the action. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of valid arguments</td>
         </tr>
 
 	
@@ -2104,7 +2104,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -2136,7 +2136,7 @@ Other calls should be made after this one will be completed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="namedQuery.js.html">plugins/namedQuery.js</a>, <a href="namedQuery.js.html#sunlight-1-line-11">line 11</a>
+        <a href="namedQuery.js.html">plugins/namedQuery.js</a>, <a href="namedQuery.js.html#sunlight-1-line-27">line 27</a>
     </li></ul></dd>
     
 
@@ -2255,7 +2255,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a></td>
         </tr>
 
 	
@@ -2351,7 +2351,7 @@ Other calls should be made after this one will be completed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remove.js.html">plugins/remove.js</a>, <a href="remove.js.html#sunlight-1-line-10">line 10</a>
+        <a href="remove.js.html">plugins/remove.js</a>, <a href="remove.js.html#sunlight-1-line-26">line 26</a>
     </li></ul></dd>
     
 
@@ -2460,7 +2460,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a></td>
         </tr>
 
 	
@@ -2515,7 +2515,7 @@ Other calls should be made after this one will be completed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="report.js.html">plugins/report.js</a>, <a href="report.js.html#sunlight-1-line-8">line 8</a>
+        <a href="report.js.html">plugins/report.js</a>, <a href="report.js.html#sunlight-1-line-24">line 24</a>
     </li></ul></dd>
     
 
@@ -2634,7 +2634,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a></td>
+            <td class="description last">One of object codes from <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a></td>
         </tr>
 
 	
@@ -2698,7 +2698,7 @@ Other calls should be made after this one will be completed.
 
             
 
-            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">AtTask API Explorer</a> for the list of available fields for the given objCode.</td>
+            <td class="description last">Which fields to return. See <a href="https://developers.attask.com/api-docs/api-explorer/">Workfront API Explorer</a> for the list of available fields for the given objCode.</td>
         </tr>
 
 	
@@ -2730,7 +2730,7 @@ Other calls should be made after this one will be completed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="search.js.html">plugins/search.js</a>, <a href="search.js.html#sunlight-1-line-9">line 9</a>
+        <a href="search.js.html">plugins/search.js</a>, <a href="search.js.html#sunlight-1-line-25">line 25</a>
     </li></ul></dd>
     
 
@@ -2873,7 +2873,7 @@ Returned 'handle' can be passed to create() method to create a new document.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="upload.js.html">plugins/upload.js</a>, <a href="upload.js.html#sunlight-1-line-8">line 8</a>
+        <a href="upload.js.html">plugins/upload.js</a>, <a href="upload.js.html#sunlight-1-line-24">line 24</a>
     </li></ul></dd>
     
 
@@ -2919,7 +2919,7 @@ Returned 'handle' can be passed to create() method to create a new document.
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a>
-		on Thu Jan 29 2015 12:57:39 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		on Wed Feb 04 2015 13:50:55 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
 			</div>

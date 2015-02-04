@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>attask-api Index</title>
+	<title>workfront-api Index</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -19,7 +19,7 @@
 <div class="container-fluid">
 	<div class="navbar navbar-fixed-top ">
 		<div class="navbar-inner">
-			<a class="brand" href="index.html">attask-api</a>
+			<a class="brand" href="index.html">workfront-api</a>
 			<ul class="nav">
 				
 				<li class="dropdown">
@@ -29,15 +29,15 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="AtTask.ApiConstants.html">ApiConstants</a>
+							<a href="Workfront.ApiConstants.html">ApiConstants</a>
 						</li>
 						
 						<li>
-							<a href="AtTask.ApiFactory.html">ApiFactory</a>
+							<a href="Workfront.ApiFactory.html">ApiFactory</a>
 						</li>
 						
 						<li>
-							<a href="AtTask.ApiUtil.html">ApiUtil</a>
+							<a href="Workfront.ApiUtil.html">ApiUtil</a>
 						</li>
 						
 
@@ -51,7 +51,7 @@
 					<ul class="dropdown-menu ">
 						
 						<li>
-							<a href="Api.html">Api</a>
+							<a href="global.html#Api">Api</a>
 						</li>
 						
 
@@ -95,17 +95,15 @@
 
 
     <section>
-        <article><h1 id="attask-api">attask-api</h1>
-<p><a href="https://www.npmjs.org/package/attask-api"><img src="https://img.shields.io/npm/v/attask-api.svg?style=flat" alt="NPM version"></a> <a href="https://www.npmjs.org/package/attask-api"><img src="https://img.shields.io/npm/dm/attask-api.svg?style=flat" alt="NPM downloads"></a> <a href="LICENSE"><img src="http://img.shields.io/badge/license-APv2-blue.svg?style=flat" alt="Apache v2 License"></a> <a href="https://travis-ci.org/bhovhannes/attask-api"><img src="https://img.shields.io/travis/bhovhannes/attask-api.svg?style=flat" alt="Build Status"></a> <a href="https://coveralls.io/r/bhovhannes/attask-api"><img src="https://img.shields.io/coveralls/bhovhannes/attask-api.svg?style=flat" alt="Coverage"></a> <a href="https://codeclimate.com/github/bhovhannes/attask-api"><img src="https://img.shields.io/codeclimate/github/bhovhannes/attask-api.svg?style=flat" alt="Code Climate"></a></p>
-<p>An AtTask API for the Node and Web</p>
-<h2 id="status">Status</h2>
-<p>This is currently work in progress. Package will be published to NPM registry once everything will be ready. Use source code at your own risk.</p>
+        <article><h1 id="workfront-api">workfront-api</h1>
+<p><a href="https://www.npmjs.org/package/workfront-api"><img src="https://img.shields.io/npm/v/workfront-api.svg?style=flat" alt="NPM version"></a> <a href="https://www.npmjs.org/package/workfront-api"><img src="https://img.shields.io/npm/dm/workfront-api.svg?style=flat" alt="NPM downloads"></a> <a href="LICENSE"><img src="http://img.shields.io/badge/license-APv2-blue.svg?style=flat" alt="Apache v2 License"></a> <a href="https://travis-ci.org/bhovhannes/workfront-api"><img src="https://img.shields.io/travis/bhovhannes/workfront-api.svg?style=flat" alt="Build Status"></a> <a href="https://coveralls.io/r/bhovhannes/workfront-api"><img src="https://img.shields.io/coveralls/bhovhannes/workfront-api.svg?style=flat" alt="Coverage"></a> <a href="https://codeclimate.com/github/bhovhannes/workfront-api"><img src="https://img.shields.io/codeclimate/github/bhovhannes/workfront-api.svg?style=flat" alt="Code Climate"></a></p>
+<p>A Workfront API for the Node and the Web</p>
 <h2 id="usage">Usage</h2>
 <h4 id="server-side">Server-side</h4>
 <p>Install as a dependency:</p>
-<pre><code>npm install --save attask-api
-</code></pre><p>Then <code>require(&#39;attask-api&#39;)</code> in your code. For example:</p>
-<pre><code class="lang-javascript">var attask = require(&#39;attask-api&#39;),
+<pre><code>npm install --save workfront-api
+</code></pre><p>Then <code>require(&#39;workfront-api&#39;)</code> in your code. For example:</p>
+<pre><code class="lang-javascript">var Workfront = require(&#39;workfront-api&#39;),
     util = require(&#39;util&#39;);
 
 /**
@@ -117,22 +115,24 @@
  *    ApiConstants: [Object] 
  * }
  */
-console.log(util.inspect(attask, {depth:0}));
+console.log(util.inspect(Workfront, {depth:0}));
 </code></pre>
 <h4 id="in-a-browser">In a browser</h4>
-<p>This package uses <a href="http://browserify.org">Browserify</a> to generate <a href="dist/attask.min.js">dist/attask.min.js</a>. Loading that script will create <code>window.AtTask</code> object which will contain all the classes and methods just as in the server-side environment (see <a href="#server-side">Server-side</a> section).<br>This package makes use of <a href="https://www.promisejs.org">Promises</a>. Promises are not currently supported by all browsers (see <a href="http://kangax.github.io/compat-table/es6/#Promise">kangax compatibility tables</a> but there are many polyfills available, including one listed in <a href="https://www.promisejs.org">www.promisejs.org</a>. Load polyfill before <code>attask.min.js</code> and everything will work just fine.<br>Although the lack of CORS support may prevent you from sending request to AtTask servers, there are some usage examples in <a href="examples/browser">examples/browser</a> folder to give you an idea.</p>
+<p>This package uses <a href="http://browserify.org">Browserify</a> to generate <a href="dist/workfront.min.js">dist/workfront.min.js</a>. Loading that script will create <code>window.Workfront</code> object which will contain all the classes and methods just as in the server-side environment (see <a href="#server-side">Server-side</a> section).
+This package makes use of <a href="https://www.promisejs.org">Promises</a>. Promises are not currently supported by all browsers (see <a href="http://kangax.github.io/compat-table/es6/#Promise">kangax compatibility tables</a> but there are many polyfills available, including one listed in <a href="https://www.promisejs.org">www.promisejs.org</a>. Load polyfill before <code>workfront.min.js</code> and everything will work just fine.
+Although the lack of CORS support may prevent you from sending request to Workfront servers, there are some usage examples in <a href="examples/browser">examples/browser</a> folder to give you an idea.</p>
 <h2 id="documentation">Documentation</h2>
-<p>API documentation is available at <a href="http://bhovhannes.github.io/attask-api/">http://bhovhannes.github.io/attask-api/</a>.</p>
+<p>API documentation is available at <a href="http://workfront.github.io/workfront-api/">http://workfront.github.io/workfront-api/</a>.</p>
 <h2 id="examples">Examples</h2>
-<p>A number of examples can be found under <a href="examples">examples</a> directory. It includes examples for both <a href="examples/node">node</a> and <a href="examples/browser">browser</a> environments.<br>In order to run these examples clone a copy of attask-api repository:</p>
-<pre><code>git clone git://github.com/bhovhannes/attask-api.git
+<p>A number of examples can be found under <a href="examples">examples</a> directory. It includes examples for both <a href="examples/node">node</a> and <a href="examples/browser">browser</a> environments.<br>In order to run these examples clone a copy of workfront-api repository:</p>
+<pre><code>git clone git://github.com/Workfront/workfront-api.git
 </code></pre><h4 id="running-node-examples-node-examples">Running <a href="examples/node">node</a> examples</h4>
-<p>First enter into <code>attask-api</code> directory and install all the dependencies:</p>
-<pre><code>cd attask-api
+<p>First enter into <code>workfront-api</code> directory and install all the dependencies:</p>
+<pre><code>cd workfront-api
 npm install
 </code></pre><p>Use <code>node</code> to run the examples. For examples:</p>
 <pre><code>node examples/node/get-user-count.js
-</code></pre><p>Each example script outputs all its results into console and contains comments in the source code explaining what is happenning in more details.</p>
+</code></pre><p>Each example script outputs all its results into console and contains comments in the source code explaining what is happening in more details.</p>
 <h4 id="running-browser-examples-browser-examples">Running <a href="examples/browser">browser</a> examples</h4>
 <p>There is a separate <a href="http://gulpjs.com">Gulp</a> task for starting web server.
 To start webserver type:</p>
@@ -157,7 +157,7 @@ To start webserver type:</p>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a>
-		on Thu Jan 29 2015 12:57:39 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		on Wed Feb 04 2015 13:50:55 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
 			</div>
