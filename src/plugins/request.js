@@ -98,7 +98,6 @@ module.exports = function(Api) {
             });
         }
         else {
-
             var httpTransport = this.httpTransport;
 
             return new Promise(function (resolve, reject) {
@@ -127,10 +126,10 @@ module.exports = function(Api) {
                         }
                     });
                 });
-                request.on('error', reject);
-                if (params && requestHasData(options.method)) {
-                    request.write(params);
+                if (paramsQS && requestHasData(options.method)) {
+                    request.write(paramsQS);
                 }
+                request.on('error', reject);
                 request.end();
             });
         }
