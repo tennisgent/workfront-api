@@ -36,6 +36,9 @@ function Api(config) {
     var parsed = url.parse(config.url),
         isHttps = parsed.protocol === 'https:';
 
+    // Check if there's a browser environment
+    this.isBrowser = typeof window !== "undefined";
+
     // Create the request
     this.httpTransport = isHttps ? https : http;
 

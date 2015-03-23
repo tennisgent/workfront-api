@@ -50,50 +50,90 @@ module.exports = function(Api) {
             params.fields = fields.join();
         }
 
-        params = queryString.stringify(params);
-        if (params) {
+        var paramsQS = queryString.stringify(params);
+        if (paramsQS) {
             if (requestHasData(options.method)) {
                 options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-                options.headers['Content-Length'] = params.length;
+                options.headers['Content-Length'] = paramsQS.length;
             }
-            else {
-                options.path += '?' + params;
+            else if (!this.isBrowser) {
+                options.path += '?' + paramsQS;
             }
         }
 
-        var httpTransport = this.httpTransport;
+        if (this.isBrowser) {
+            var loadScript = function (url) {
+                var script = document.createElement('script'),
+                    done = false;
+                script.src = url;
+                script.async = true;
+                script.onload = script.onreadystatechange = function () {
+                    if (!done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
+                        done = true;
+                        script.onload = script.onreadystatechange = null;
+                        if (script && script.parentNode) {
+                            script.parentNode.removeChild(script);
+                        }
+                    }
+                };
+                window.document.getElementsByTagName('head')[0].appendChild(script);
+            };
 
-        return new Promise(function (resolve, reject) {
-            var request = httpTransport.request(options, function (response) {
-                var body = '';
-                if (typeof response.setEncoding === 'function') {
-                    response.setEncoding('utf8');
-                }
-                response.on('data', function (chunk) {
-                    body += chunk;
-                });
-                response.on('end', function () {
-                    var data;
-                    try {
-                        data = JSON.parse(body);
-                    }
-                    catch(e) {
-                        reject(body);
-                        return;
-                    }
-                    if (data.error) {
-                        reject(data);
-                    } else {
-                        resolve(data.data);
-                    }
-                });
+            util._extend(params, {
+                jsonp: 'callback',
+                method: method
             });
-            request.on('error', reject);
-            if (params && requestHasData(options.method)) {
-                request.write(params);
-            }
-            request.end();
-        });
+
+            return new Promise(function (resolve, reject) {
+                var url = options.protocol + '//' + options.host + ':' + options.port + options.path + '?' + queryString.stringify(params);
+                window['callback'] = function (jsonpData) {
+                    if(jsonpData.error) {
+                        reject(jsonpData.error);
+                    }
+                    else {
+                        resolve(jsonpData.data);
+                    }
+                };
+                loadScript(url);
+            });
+        }
+        else {
+
+            var httpTransport = this.httpTransport;
+
+            return new Promise(function (resolve, reject) {
+                var request = httpTransport.request(options, function (response) {
+                    var body = '';
+                    if (typeof response.setEncoding === 'function') {
+                        response.setEncoding('utf8');
+                    }
+                    response.on('data', function (chunk) {
+                        body += chunk;
+                    });
+                    response.on('end', function () {
+                        var data;
+                        try {
+                            data = JSON.parse(body);
+                        }
+                        catch (e) {
+                            reject(body);
+                            return;
+                        }
+                        if (data.error) {
+                            reject(data);
+                        }
+                        else {
+                            resolve(data.data);
+                        }
+                    });
+                });
+                request.on('error', reject);
+                if (params && requestHasData(options.method)) {
+                    request.write(params);
+                }
+                request.end();
+            });
+        }
     };
 };
 
