@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>workfront-api Source: plugins/namedQuery.js</title>
+	<title>workfront-api Source: plugins/apiKey.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -71,7 +71,7 @@
 					
 
 
-		<h1 class="page-title">Source: plugins/namedQuery.js</h1>
+		<h1 class="page-title">Source: plugins/apiKey.js</h1>
     
     <section>
         <article>
@@ -97,17 +97,49 @@
 module.exports = function(Api) {
 
     /**
-     * Executes a named query for the given obj code
+     * Used to obtain an API key
      * @memberOf Workfront.Api
-     * @param {String} objCode    One of object codes from {@link https://developers.attask.com/api-docs/api-explorer/|Workfront API Explorer}
-     * @param {String} query    A query to execute. A list of allowed named queries are available within the {@link https://developers.attask.com/api-docs/api-explorer/|Workfront API Explorer} under "actions" for each object.
-     * @param {Object} [queryArgs]    Optional. Arguments for the action. See {@link https://developers.attask.com/api-docs/api-explorer/|Workfront API Explorer} for the list of valid arguments
-     * @param {String|String[]} fields    Which fields to return. See {@link https://developers.attask.com/api-docs/api-explorer/|Workfront API Explorer} for the list of available fields for the given objCode.
-     * @returns {Promise}    A promise which will resolved with received data if everything went ok and rejected with error info otherwise
+     * @param {String} username    A username in Workfront
+     * @param {String} password    Password to use
+     * @return {Promise}    A promise which will resolved with API key if everything went ok and rejected otherwise
      */
-    Api.prototype.namedQuery = function (objCode, query, queryArgs, fields) {
-        return this.request(objCode + '/' + query, queryArgs, fields, Api.Methods.GET);
+    Api.prototype.getApiKey = function (username, password) {
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            if (typeof that.httpParams.apiKey !== 'undefined') {
+                resolve(that.httpParams.apiKey);
+            }
+            else {
+                that.execute('USER', null, 'getApiKey', {
+                    username: username,
+                    password: password
+                }).then(function (data) {
+                    that.httpParams.apiKey = data.result;
+                    resolve(that.httpParams.apiKey);
+                }, reject);
+            }
+        });
     };
+
+    /**
+     * Invalidates the current API key.
+     * Call this to be able to retrieve a new one using getApiKey().
+     * @memberOf Workfront.Api
+     * @return {Promise}    A promise which will resolved if everything went ok and rejected otherwise
+     */
+    Api.prototype.clearApiKey = function () {
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            that.execute('USER', null, 'clearApiKey').then(function (result) {
+                if (result) {
+                    delete that.httpParams.apiKey;
+                    resolve();
+                } else {
+                    reject();
+                }
+            });
+        });
+    }
 };</pre>
         </article>
     </section>

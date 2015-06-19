@@ -147,8 +147,9 @@
             
 
             <td class="description last">An object with the following keys:<br/>
-    <code>url</code> {String} - Required. An url to Workfront server (for example: http://localhost:8080)<br/>
+    <code>url</code> {String} - Required. A url to Workfront server (for example: http://localhost:8080)<br/>
     <code>version</code> {String} - Optional. Which version of api to use. At the moment of writing can be 1.0, 2.0, 3.0, 4.0. Pass 'unsupported' to use Workfront latest API (maybe unstable).<br/>
+    <code>alwaysUseGet</code> {Boolean} - Optional. Defaults to false. Will cause the api to make every request as a GET with params in the query string and add method=DESIRED_METHOD_TYPE in the query string. Some Workfront urls will have issues with PUT and DELETE calls if this value is false.<br/>
     <code>secureProtocol</code> {String} - Optional. Used only in https. The SSL method to use, e.g. TLSv1_method to force TLS version 1. The possible values depend on your installation of OpenSSL and are defined in the constant <a href="http://www.openssl.org/docs/ssl/ssl.html#DEALING_WITH_PROTOCOL_METHODS">SSL_METHODS</a>.</td>
         </tr>
 
@@ -181,7 +182,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Api.js.html">Api.js</a>, <a href="Api.js.html#sunlight-1-line-35">line 35</a>
+        <a href="Api.js.html">Api.js</a>, <a href="Api.js.html#sunlight-1-line-36">line 36</a>
     </li></ul></dd>
     
 
@@ -225,6 +226,99 @@
         <h3 class="subsection-title">Methods</h3>
 
         <dl>
+            
+<dt>
+    <h4 class="name" id="clearApiKey"><span class="type-signature">&lt;static> </span>Api#clearApiKey<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Invalidates the current API key.
+Call this to be able to retrieve a new one using getApiKey().
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="apiKey.js.html">plugins/apiKey.js</a>, <a href="apiKey.js.html#sunlight-1-line-53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise which will resolved if everything went ok and rejected otherwise
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Promise</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
             
 <dt>
     <h4 class="name" id="copy"><span class="type-signature">&lt;static> </span>Api#copy<span class="signature">(objCode, objID, updates, <span class="optional">fields</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
@@ -371,7 +465,10 @@ Copying is supported only for some objects. The <a href="https://developers.atta
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
 
 
             
@@ -746,7 +843,10 @@ Copying is supported only for some objects. The <a href="https://developers.atta
             <td class="type">
             
                 
-<span class="param-type">String[]</span>
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
 
 
             
@@ -992,7 +1092,10 @@ Copying is supported only for some objects. The <a href="https://developers.atta
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
 
 
             
@@ -1438,7 +1541,10 @@ Copying is supported only for some objects. The <a href="https://developers.atta
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
 
 
             
@@ -1480,7 +1586,7 @@ Copying is supported only for some objects. The <a href="https://developers.atta
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="get.js.html">plugins/get.js</a>, <a href="get.js.html#sunlight-1-line-30">line 30</a>
+        <a href="get.js.html">plugins/get.js</a>, <a href="get.js.html#sunlight-1-line-33">line 33</a>
     </li></ul></dd>
     
 
@@ -1506,6 +1612,170 @@ Copying is supported only for some objects. The <a href="https://developers.atta
             
 <div class="param-desc">
     A promise which will resolved with results if everything went ok and rejected otherwise
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Promise</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getApiKey"><span class="type-signature">&lt;static> </span>Api#getApiKey<span class="signature">(username, password)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Used to obtain an API key
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A username in Workfront</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Password to use</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="apiKey.js.html">plugins/apiKey.js</a>, <a href="apiKey.js.html#sunlight-1-line-29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise which will resolved with API key if everything went ok and rejected otherwise
 </div>
 
 
@@ -2086,7 +2356,10 @@ Other calls should be made after this one will be completed.
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
 
 
             
@@ -2678,7 +2951,10 @@ Other calls should be made after this one will be completed.
             <td class="type">
             
                 
-<span class="param-type">Array</span>
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
 
 
             
@@ -2919,7 +3195,7 @@ Returned 'handle' can be passed to create() method to create a new document.
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a>
-		on Mon Feb 23 2015 14:52:07 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		on Fri Jun 19 2015 21:26:22 GMT+0400 (AMT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
 			</div>
