@@ -36,9 +36,17 @@ module.exports = function(Api) {
         params = params || {};
         util._extend(params, this.httpParams);
 
-        var options = {};
+        var options = {},
+            alwaysUseGet = this.httpOptions.alwaysUseGet;
+        
         util._extend(options, this.httpOptions);
-        options.method = method;
+        if (alwaysUseGet) {
+            params.method = method;
+        } else {
+            options.method = method;
+        }
+
+        util._extend(options, this.httpOptions);
         if (path.indexOf('/') === 0) {
             options.path = this.httpOptions.path + path;
         }
@@ -52,7 +60,7 @@ module.exports = function(Api) {
 
         var paramsQS = queryString.stringify(params);
         if (paramsQS) {
-            if (requestHasData(options.method)) {
+            if (!alwaysUseGet && requestHasData(options.method)) {
                 options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
                 options.headers['Content-Length'] = paramsQS.length;
             }
@@ -132,6 +140,12 @@ module.exports = function(Api) {
                 request.on('error', reject);
                 request.end();
             });
+            request.on('error', reject);
+            if (!alwaysUseGet && params && requestHasData(options.method)) {
+                request.write(params);
+            }
+            request.end();
+        });
         }
     };
 };
