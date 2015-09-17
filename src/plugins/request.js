@@ -134,18 +134,12 @@ module.exports = function(Api) {
                         }
                     });
                 });
-                if (paramsQS && requestHasData(options.method)) {
+                if (!alwaysUseGet && paramsQS && requestHasData(options.method)) {
                     request.write(paramsQS);
                 }
                 request.on('error', reject);
                 request.end();
             });
-            request.on('error', reject);
-            if (!alwaysUseGet && params && requestHasData(options.method)) {
-                request.write(params);
-            }
-            request.end();
-        });
         }
     };
 };
