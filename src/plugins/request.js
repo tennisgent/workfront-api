@@ -27,6 +27,33 @@ module.exports = function(Api) {
         return method !== Api.Methods.GET && method !== Api.Methods.PUT;
     };
 
+    Api.prototype._handleResponse = function (resolve, reject) {
+        return function (response) {
+            var body = '';
+            if (typeof response.setEncoding === 'function') {
+                response.setEncoding('utf8');
+            }
+            response.on('data', function (chunk) {
+                body += chunk;
+            });
+            response.on('end', function () {
+                var data;
+                try {
+                    data = JSON.parse(body);
+                }
+                catch (e) {
+                    reject(body);
+                    return;
+                }
+                if (data.error) {
+                    reject(data);
+                } else {
+                    resolve(data.data);
+                }
+            });
+        };
+    };
+
     Api.prototype.request = function(path, params, fields, method) {
         fields = fields || [];
         if (typeof fields === 'string') {
@@ -38,7 +65,7 @@ module.exports = function(Api) {
 
         var options = {},
             alwaysUseGet = this.httpOptions.alwaysUseGet;
-        
+
         util._extend(options, this.httpOptions);
         if (alwaysUseGet) {
             params.method = method;
@@ -46,7 +73,6 @@ module.exports = function(Api) {
             options.method = method;
         }
 
-        util._extend(options, this.httpOptions);
         if (path.indexOf('/') === 0) {
             options.path = this.httpOptions.path + path;
         }
@@ -138,9 +164,11 @@ module.exports = function(Api) {
                     request.write(paramsQS);
                 }
                 request.on('error', reject);
+                if (!alwaysUseGet && params && requestHasData(options.method)) {
+                    request.write(params);
+                }
                 request.end();
-            });
+            }.bind(this));
         }
     };
 };
-

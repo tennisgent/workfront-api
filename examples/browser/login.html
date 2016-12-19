@@ -30,13 +30,10 @@
 			var username = document.getElementById('username').value;
 			var password = document.getElementById('password').value;
 
-			var instance = new window.Workfront.Api({url: url, version: 'unsupported'});
-			instance.getApiKey(username, password).then(function(data){
+			var instance = new window.Workfront.Api({url: url, version: '3.0'});
+			instance.login(username, password).then(function(data){
 				console.log(data);
-			}, function (error) {
-                console.error(error.message);
-                console.log(error);
-            });
+			}, console.error);
 		}
 	</script>
 </head>

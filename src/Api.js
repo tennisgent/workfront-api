@@ -63,7 +63,7 @@ function Api(config) {
 
     // Append version to path if provided
     var path;
-    if (config.version === 'internal' || config.version === 'unsupported') {
+    if (['internal', 'unsupported', 'asp'].indexOf(config.version) >= 0) {
         path = '/attask/api-' + config.version;
     }
     else {
@@ -93,10 +93,14 @@ require('./plugins/remove')(Api);
 require('./plugins/report')(Api);
 require('./plugins/count')(Api);
 require('./plugins/copy')(Api);
-require('./plugins/upload')(Api);
 require('./plugins/execute')(Api);
 require('./plugins/namedQuery')(Api);
 require('./plugins/metadata')(Api);
 require('./plugins/apiKey')(Api);
+
+if(typeof(window)==='undefined'){
+  //These plugins only work in node
+  require('./plugins/upload')(Api);
+}
 
 module.exports = Api;

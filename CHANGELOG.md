@@ -1,3 +1,45 @@
+v1.3.4 - June 13, 2016
+
+* 1.3.4 (Hovhannes Babayan)
+
+v1.3.3 - June 13, 2016
+
+* 1.3.3 (Hovhannes Babayan)
+* chore: workfront-api-constants should be a dep instead of devDep, deps upgrade (Hovhannes Babayan)
+
+v1.3.0 - June 3, 2016
+
+* 1.3.0 (Hovhannes Babayan)
+* chore: updated browser bundle (Hovhannes Babayan)
+* fix: switched to use workfront-api-constants (Hovhannes Babayan)
+
+v1.2.3 - March 29, 2016
+
+* 1.2.3 (Hovhannes Babayan)
+* chore: updated browser bundle (Hovhannes Babayan)
+* fix: removed console.log (Hovhannes Babayan)
+
+v1.2.2 - March 29, 2016
+
+* 1.2.2 (Hovhannes Babayan)
+* chore: rebuild browser bundle (Hovhannes Babayan)
+* fix: shorter promise chains and better bind syntax (Hovhannes Babayan)
+* chore: Added Node 4.2 to travis config (Hovhannes Babayan)
+
+v1.2.1 - October 20, 2015
+
+* 1.2.1 (Hovhannes Babayan)
+* fix: improved docs (Hovhannes Babayan)
+
+v1.2.0 - October 20, 2015
+
+* 1.2.0 (Hovhannes Babayan)
+* feat: adding upload support (Matt Winchester)
+* fix: issue with login example (Hovhannes Babayan)
+* chore: use new Travis CI infrastructure (Hovhannes Babayan)
+* fix: broken link (Hovhannes Babayan)
+* Update README.md (kishmiryan-karlen)
+
 v1.1.1 - July 11, 2015
 
 * 1.1.1 (Hovhannes Babayan)
